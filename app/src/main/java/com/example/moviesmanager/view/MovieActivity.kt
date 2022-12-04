@@ -8,6 +8,7 @@ import androidx.core.view.get
 import com.example.moviesmanager.databinding.ActivityMovieBinding
 import com.example.moviesmanager.model.Constant.EXTRA_MOVIE
 import com.example.moviesmanager.model.Constant.VIEW_MOVIE
+import com.example.moviesmanager.model.Genero
 import com.example.moviesmanager.model.Movie
 import kotlin.random.Random
 
@@ -27,9 +28,14 @@ class MovieActivity: AppCompatActivity() {
                     anoLancamentoEt.setText(anoLancamento)
                     estudioEt.setText(estudio)
                     duracaoEt.setText(tempoDuracao)
-                    //flagEt.setText(flag)
+                    if(flag == "checked") flagSw.toggle()
+                    estudioEt.setText(estudio)
                     notaEt.setText(nota)
-                    //generoSp.set(genero)
+                    for (i in 0 until Genero.values().size){
+                        if(genero == Genero.values()[i].toString()) {
+                            generoSp.setSelection(i)
+                        }
+                    }
 
                 }
             }
@@ -45,13 +51,14 @@ class MovieActivity: AppCompatActivity() {
         }
 
         amb.saveBt.setOnClickListener {
+            val flagValue : String = if(amb.flagSw.isChecked) "checked" else "unchecked"
             val person = Movie(
                 id = receivedMovie?.id?: Random(System.currentTimeMillis()).nextInt(),
                 nome = amb.nomeEt.text.toString(),
                 anoLancamento = amb.anoLancamentoEt.text.toString(),
                 estudio = amb.estudioEt.text.toString(),
                 tempoDuracao = amb.duracaoEt.text.toString(),
-                flag = amb.flagSw.text.toString(),
+                flag = flagValue,
                 nota = amb.notaEt.text.toString(),
                 genero = amb.generoSp.selectedItem.toString()
             )
