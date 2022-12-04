@@ -23,7 +23,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="numberDecimal"
+        android:inputType="date"
         android:hint="Ano de lancamento"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,11 +69,11 @@
         android:hint="Nota"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/flagEt" />
+        app:layout_constraintTop_toBottomOf="@+id/flagSw" />
 
     <Spinner
         android:id="@+id/generoSp"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:entries="@array/genero"
         app:layout_constraintEnd_toEndOf="parent"
