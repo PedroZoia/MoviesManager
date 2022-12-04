@@ -2,4 +2,11 @@
     <string name="app_name">MoviesManager</string>
     <string name="nota">Nota:</string>
     <string name="nome">Nome:</string>
+    <string-array name="genero">
+        <item>Terror</item>
+        <item>Acao</item>
+        <item>Drama</item>
+        <item>Animacao</item>
+        <item>Comedia</item>
+    </string-array>
 </resources>

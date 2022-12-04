@@ -10,6 +10,7 @@ import com.example.moviesmanager.R
 import com.example.moviesmanager.adapter.MovieAdapter
 import com.example.moviesmanager.databinding.ActivityMainBinding
 import com.example.moviesmanager.model.Constant.EXTRA_MOVIE
+import com.example.moviesmanager.model.Constant.VIEW_MOVIE
 import com.example.moviesmanager.model.Movie
 
 class MainActivity : AppCompatActivity() {
@@ -24,18 +25,19 @@ class MainActivity : AppCompatActivity() {
     // Adapter
     private lateinit var movieAdapter: MovieAdapter
 
-    private lateinit var parl: ActivityResultLauncher<Intent>
+    private lateinit var marl: ActivityResultLauncher<Intent>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(amb.root)
+        fillMovieList()
 
         movieAdapter = MovieAdapter(this, movieList)
         amb.movieLv.adapter = movieAdapter
 
         movieAdapter.notifyDataSetChanged()
 
-        parl = registerForActivityResult(ActivityResultContracts.StartActivityForResult(),) {
+        marl = registerForActivityResult(ActivityResultContracts.StartActivityForResult(),) {
                 result ->
             if (result.resultCode == RESULT_OK) {
                 val movie = result.data?.getParcelableExtra<Movie>(EXTRA_MOVIE)
@@ -54,7 +56,17 @@ class MainActivity : AppCompatActivity() {
         }
 
         registerForContextMenu(amb.movieLv)
+
+
+    amb.movieLv.onItemClickListener =
+        AdapterView.OnItemClickListener { _, _, position, _ ->
+            val movie = movieList[position]
+            val movieIntent = Intent(this@MainActivity, MovieActivity::class.java)
+            movieIntent.putExtra(EXTRA_MOVIE, movie)
+            movieIntent.putExtra(VIEW_MOVIE, true)
+            startActivity(movieIntent)
         }
+    }
 
     private fun fillMovieList() {
         for (i in 1..3) {
