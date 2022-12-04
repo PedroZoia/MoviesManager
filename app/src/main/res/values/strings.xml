@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MoviesManager</string>
+    <string name="nota">Nota:</string>
+    <string name="nome">Nome:</string>
 </resources>
