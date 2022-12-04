@@ -4,6 +4,16 @@
     <item
         android:id="@+id/addMovieMi"
         android:icon="@drawable/ic_add"
-        android:title="Add movie"
+        android:title="@string/add_movie"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/orderByNome"
+        android:icon="@drawable/ic_order_by_name"
+        android:title="@string/orderByNome"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/orderByNota"
+        android:icon="@drawable/ic_order_by_rating"
+        android:title="@string/orderByNota"
         app:showAsAction="ifRoom" />
 </menu>

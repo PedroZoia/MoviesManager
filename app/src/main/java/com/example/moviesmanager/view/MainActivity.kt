@@ -111,8 +111,27 @@ class MainActivity : AppCompatActivity() {
                 marl.launch(movieIntent)
                 true
             }
+            R.id.orderByNome -> {
+                orderListByName()
+                true
+            }
+            R.id.orderByNota -> {
+                orderListByRate()
+                true
+            }
             else -> { false }
         }
+    }
+
+    private fun orderListByName(){
+        movieList.sortBy { it.nome }
+        movieAdapter.notifyDataSetChanged()
+    }
+
+    private fun orderListByRate(){
+        movieList.sortBy { it.nota.toDouble() }
+        movieList.reverse()
+        movieAdapter.notifyDataSetChanged()
     }
 
     private fun fillMovieList() {

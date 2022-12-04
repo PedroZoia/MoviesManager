@@ -2,6 +2,9 @@
     <string name="app_name">MoviesManager</string>
     <string name="nota">Nota:</string>
     <string name="nome">Nome:</string>
+    <string name="add_movie">Adicionar filme</string>
+    <string name="orderByNome">Ordenar por nome</string>
+    <string name="orderByNota">Ordenar por nota</string>
     <string-array name="genero">
         <item>Terror</item>
         <item>Acao</item>
