@@ -145,4 +145,3 @@ class MainActivity : AppCompatActivity() {
             movieAdapter.notifyDataSetChanged()
         }
     }
-}
