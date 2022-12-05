@@ -6,14 +6,13 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.get
 import com.example.moviesmanager.databinding.ActivityMovieBinding
 import com.example.moviesmanager.model.Constant.EXTRA_LIST_MOVIE_NAMES
 import com.example.moviesmanager.model.Constant.EXTRA_MOVIE
+import com.example.moviesmanager.model.Constant.INVALID_MOVIE_ID
 import com.example.moviesmanager.model.Constant.VIEW_MOVIE
 import com.example.moviesmanager.model.Genero
 import com.example.moviesmanager.model.Movie
-import kotlin.random.Random
 
 class MovieActivity : AppCompatActivity(){
     private val amb: ActivityMovieBinding by lazy {
@@ -73,7 +72,7 @@ class MovieActivity : AppCompatActivity(){
             }
 
             val movie = Movie(
-                id = receivedMovie?.id?: Random(System.currentTimeMillis()).nextInt(),
+                id = receivedMovie?.id?: INVALID_MOVIE_ID,
                 nome = amb.nomeEt.text.toString(),
                 tempoDuracao = amb.duracaoEt.text.toString(),
                 anoLancamento = amb.anoLancamentoEt.text.toString(),
